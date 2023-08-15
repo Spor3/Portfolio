@@ -20,7 +20,7 @@ export function Model(props) {
   group.current.rotation.y = clock.getElapsedTime();
 })   */
   return (
-    <mesh scale={isLargerThan500 ? 1 : 0.9}>
+    <mesh scale={isLargerThan500 ? 1 : 0.9} rotation={[0,0.7,0]}>
       <hemisphereLight intensity={1} position={[1,5,5]} groundColor="#111a21" />
        <pointLight intensity={0.08} position={[1,9,9]}/>
       <spotLight position={[-1, 1, -1]} angle={0.25} penumbra={1} intensity={1} castShadow shadow-mapSize={1024} /> 
