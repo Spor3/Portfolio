@@ -6,9 +6,11 @@ Command: npx gltfjsx@6.2.10 .\64d9ea9acfdd0f000df55bf9.glb
 import { useRef } from 'react';
 import { useGLTF} from '@react-three/drei';
 import {useMediaQuery } from "@chakra-ui/react";
+import Simone from "./Asset/model.glb";
+
 export function Model(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('https://localhost:7275/FileHost/GetModel');
+  const { nodes, materials, animations } = useGLTF(Simone);
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
   /* const { actions } = useAnimations(animations, group);
 
@@ -41,4 +43,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('/model.glb');
+useGLTF.preload(Simone);

@@ -1,15 +1,14 @@
-import { Box, Flex, Image, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Container, Flex, Image, Text, useMediaQuery } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Logo from "../Asset/logo.png";
-import Container from "./Container";
 
 const Navigation = () => {
 
     const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
     
     return(
-    <Box position="fixed" top={0} right={0} w="100vw" py={5} >
-        <Container id="navbar">
+    <Box position="fixed" top={0} right={0} w="100vw" bg="bg" py={5} zIndex={10}>
+        <Container maxW="90vw">
         <Flex>
         <Flex flexDirection="row" alignItems="center" cursor="pointer" onClick={() => window.scrollTo({top: 0,left: 0,behavior: "smooth",})}>
          <Image src={Logo} width="50px" height="40px"/>

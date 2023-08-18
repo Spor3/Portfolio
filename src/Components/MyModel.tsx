@@ -18,7 +18,8 @@ const Loader = () => {
 
 const MyModel = () => {
 
-    const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
+    const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
+
 
     return (<Canvas
         camera={{ position: [2, 0, 12.25], fov: 4}}
@@ -28,11 +29,12 @@ const MyModel = () => {
         style={{
            /* backgroundColor: '#111a21', */
            width: '100%',
-           height: '90vh',
+           height: '100vh',
            position:"absolute",
            top:"0px",
            left:"0px",
-           marginTop:"10vh"
+           cursor:"grab"
+           /* marginTop:"10vh" */
         }}
      >
         <Suspense fallback={<Loader />}>
@@ -42,5 +44,5 @@ const MyModel = () => {
         <Preload all />
      </Canvas>);
 }
-
+export {Loader};
 export default MyModel;
