@@ -6,12 +6,14 @@ Command: npx gltfjsx@6.2.10 .\src\Laptop.glb
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Laptop from "./Asset/Laptop.glb"
+import {useMediaQuery } from "@chakra-ui/react";
 
 export function LaptopModel(props) {
-  const { nodes, materials } = useGLTF(Laptop)
+  const { nodes, materials } = useGLTF(Laptop);
+  const [isLargerThan860] = useMediaQuery('(min-width: 860px)');
   return (
-    <mesh>
-    <group {...props} dispose={null} scale={4}>
+    <mesh rotation={[0.3,0.7,0]}>
+    <group {...props} dispose={null} scale={isLargerThan860 ? 4 : 3}>
       <group position={[-0.143, 0.043, -0.256]} scale={0.001}>
         <group position={[0, -533.291, 439.625]} rotation={[-Math.PI / 2, 0, 0]} scale={[1, 1, 1.564]}>
           <group position={[-36.659, -8.386, 0]}>

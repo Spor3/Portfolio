@@ -1,6 +1,6 @@
 import { Tilt } from "react-tilt";
 import Container from "../Components/Container";
-import { Box, Button, ButtonGroup, CardBody, CardFooter, Divider, Flex, Heading, Image, Stack, Text,  } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Divider, Flex, Heading, Image, Stack, Text,  } from "@chakra-ui/react";
 import { FC } from "react";
 import { Projects } from "../Constant/Const";
 
@@ -30,7 +30,7 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
    
 
     return(
-      <Box m={10} className="shadow" >
+      <Box m={10} boxShadow="xl">
         <Tilt options={defaultOptions} style={{maxWidth:"400px", backgroundColor: "#1a2832", padding:"20px", borderRadius: "10px"}} key={title}>
           <Flex justifyContent="center">
                   <Image
@@ -44,12 +44,12 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
                     <Heading size='md' color="primary">{title}</Heading>
                     <Text color="secondary">
                       {description}
-                      {externalLink && <a target="_blank" style={{color:"#9F7AEA"}} href={externalLink}> {externalLink}</a>}
+                      {externalLink && <a target="_blank" rel="noreferrer" style={{color:"#9F7AEA"}} href={externalLink}> {externalLink}</a>}
                     </Text>
                   </Stack>
                 <Divider my={3} color="primary"/>
                 {
-                  technologies.map((e,i) => <Text display="inline" color={i == 1 ? "violet" : i == 2 ? "#DC136C" : i == 3 ? "#FFFFB3" : "#31AFD4"} me={2}>#{e}</Text>)
+                  technologies.map((e,i) => <Text display="inline" color={i === 1 ? "violet" : i === 2 ? "#DC136C" : i === 3 ? "#FFFFB3" : "#31AFD4"} me={2}>#{e}</Text>)
                 }
 {/*                   <ButtonGroup spacing='2'>
                     <Button variant='solid' colorScheme='blue'>
