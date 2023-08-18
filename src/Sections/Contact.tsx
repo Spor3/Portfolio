@@ -1,5 +1,5 @@
 
-import { Heading } from "@chakra-ui/react";
+import { Box, Card, CardBody, Flex, FormControl, FormLabel, Heading, Input } from "@chakra-ui/react";
 import Container from "../Components/Container";
 import { Suspense, useEffect } from "react";
 import { Loader } from "../Components/MyModel";
@@ -8,6 +8,7 @@ import { LaptopModel } from "../Laptop";
 import { Canvas } from "@react-three/fiber";
 
 const Laptop = () => {
+
     return(
         <Canvas
         camera={{ position: [2, 0, 12.25], fov: 15 }}
@@ -15,14 +16,12 @@ const Laptop = () => {
         /* frameloop='demand' */
         gl={{preserveDrawingBuffer: true}}
         style={{
-           /* backgroundColor: '#111a21', */
-           width: '100%',
+           width: '50%',
            height: '100vh',
            position:"absolute",
            bottom:"0px",
-           left:"0px",
-           cursor:"grab"
-           /* marginTop:"10vh" */
+           right:"0px", 
+           cursor:"grab",
         }}
      >
          <ambientLight intensity={1.25} />
@@ -42,11 +41,18 @@ const Contact = () => {
 
     return(
         <>
-        <canvas style={{position:"absolute", bottom:"0px", right:"0px", width:"100vw", height:"100vh", zIndex:0}} id="matrix"></canvas>
         <Container id="contact">
             <>
             <Heading color="primary" fontSize="6xl" pt={20} zIndex={10}>Contats.</Heading >
-            <Laptop />
+            <Card maxW="sm">
+                <CardBody>
+                    <FormControl>
+                        <FormLabel>Email address</FormLabel>
+                        <Input type='email' />
+                    </FormControl>
+                </CardBody>
+            </Card>
+                <Laptop />
             </>
         </Container>
         </>)
