@@ -14,6 +14,7 @@ import Windows from "../Asset/windowsserver-logo.png";
 import Drinks from "../Asset/drinks.png";
 import AiTool from "../Asset/aitool.png";
 import TvMaze from "../Asset/tvmaze.png";
+import { Variants } from "framer-motion";
 
 export const FEtechnologies = 
 [
@@ -106,3 +107,33 @@ export const Projects =
         externalLink: "https://www.thecocktaildb.com/api.php"
     }
 ]
+
+export const textVariantsY: Variants = {
+    offscreen: {
+      y: 150,
+      opacity: 0
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 0.8
+      }
+    }
+  };
+  
+export const textVariantsX: Variants = {
+      offscreen: {
+        x: -150,
+        opacity: 0
+      },
+      onscreen: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "tween",
+          duration: 0.8
+        }
+      }
+    };

@@ -7,7 +7,7 @@ const Navigation = () => {
     const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
     
     return(
-    <Box position="fixed" top={0} right={0} w="100vw" bg="bg" py={5} zIndex={10}>
+    <Box position="fixed" top={0} right={0} w="100%" bg="bg" py={5} zIndex={10}>
         <Container maxW="90vw">
         <Flex>
         <Flex flexDirection="row" alignItems="center" cursor="pointer" onClick={() => window.scrollTo({top: 0,left: 0,behavior: "smooth",})}>

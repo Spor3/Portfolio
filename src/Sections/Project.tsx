@@ -2,7 +2,8 @@ import { Tilt } from "react-tilt";
 import Container from "../Components/Container";
 import { Box, Button, ButtonGroup, Divider, Flex, Heading, Image, Stack, Text,  } from "@chakra-ui/react";
 import { FC } from "react";
-import { Projects } from "../Constant/Const";
+import { Projects, textVariantsX, textVariantsY } from "../Constant/Const";
+import { motion } from "framer-motion";
 
 const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
@@ -24,12 +25,14 @@ interface CardProps {
     schoolProject: boolean;
     link: string;
     externalLink: null | string;
+    index:number;
 }
  
-const Card:FC<CardProps> = ({title, description, image, technologies, schoolProject, link, externalLink}) => {
+const Card:FC<CardProps> = ({title, description, image, technologies, schoolProject, link, externalLink,index}) => {
    
 
     return(
+      <motion.div initial="offscreen" whileInView="onscreen" style={{overflowX:"hidden"}} viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsX}>
       <Box m={10} boxShadow="xl">
         <Tilt options={defaultOptions} style={{maxWidth:"400px", backgroundColor: "#1a2832", padding:"20px", borderRadius: "10px"}} key={title}>
           <Flex justifyContent="center">
@@ -61,6 +64,7 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
                   </ButtonGroup> */}
             </Tilt>
             </Box>
+            </motion.div>
     )
 }
 
@@ -70,9 +74,11 @@ const Project = () => {
     return(
         <Container id="projects">
             <Flex flexDirection="column" className="min-h-100">
+            <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsY}>
             <Heading color="primary" fontSize="6xl" pt={20}>Projects. </Heading >
+            </motion.div>
             <Flex flexWrap="wrap" alignItems="center" justifyContent="space-around" my="auto">
-                {Projects.map(e => <Card title={e.title} description={e.description} image={e.image} technologies={e.technologies} schoolProject={e.schoolProject} link={e.link} externalLink={e.externalLink} />)}
+                {Projects.map((e,i) => <Card index={i} title={e.title} description={e.description} image={e.image} technologies={e.technologies} schoolProject={e.schoolProject} link={e.link} externalLink={e.externalLink} />)}
             </Flex>
             </Flex> 
         </Container>)

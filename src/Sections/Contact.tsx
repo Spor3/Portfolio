@@ -8,6 +8,8 @@ import { LaptopModel } from "../Laptop";
 import { Canvas } from "@react-three/fiber";
 import {SiMinutemailer} from "react-icons/si";
 import {BiLogoLinkedin} from "react-icons/bi";
+import { motion } from "framer-motion";
+import { textVariantsX, textVariantsY } from "../Constant/Const";
 
 const Laptop = () => {
     const [isLargerThan630] = useMediaQuery('(min-width: 630px)');
@@ -49,8 +51,11 @@ const Contact = () => {
         <>
         <Container id="contact">
             <Flex className="min-h-100" flexDirection="column">
+            <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsY}>
             <Heading color="primary" fontSize="6xl" pt={20}>Contats.</Heading >
+            </motion.div>
             <Box my="auto"  mx={isLargerThan630 ? 0 : "auto"} >
+            <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsX}>
             <Card maxW={isLargerThan1200 ? "xl" : isLargerThan860 ? "md" : "xs"} mt={10} mb={5} bg="#1a2832" boxShadow="xl" borderRadius="10px" p={isLargerThan630 ? 3 : 6}> 
                 <CardHeader><Heading color="primary">Send <span style={{color:"#9F7AEA"}}>message</span></Heading></CardHeader>
                 <CardBody>
@@ -73,6 +78,7 @@ const Contact = () => {
                 </CardBody>
             </Card>
             <a href="https://www.linkedin.com/in/simone-sporeni/" target="_blank" rel="noreferrer" ><Avatar bg="#0A66C2" ms={10} mb={10} icon={<BiLogoLinkedin />}/></a>
+            </motion.div>
             </Box>
                 <Laptop />
             </Flex>
