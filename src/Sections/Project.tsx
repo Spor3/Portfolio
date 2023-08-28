@@ -1,9 +1,9 @@
 import { Tilt } from "react-tilt";
-import Container from "../Components/Container";
-import { Box, Button, ButtonGroup, Divider, Flex, Heading, Image, Stack, Text,  } from "@chakra-ui/react";
+import { Box, Divider, Flex, Heading, Image, Stack, Text,  } from "@chakra-ui/react";
 import { FC } from "react";
 import { Projects, textVariantsX, textVariantsY } from "../Constant/Const";
 import { motion } from "framer-motion";
+import {Container} from "../hoc/Index";
 
 const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
@@ -32,7 +32,7 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
    
 
     return(
-      <motion.div initial="offscreen" whileInView="onscreen" style={{overflowX:"hidden"}} viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsX}>
+      <motion.div key={title} initial="offscreen" whileInView="onscreen" style={{overflowX:"hidden"}} viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsX}>
       <Box m={10} boxShadow="xl">
         <Tilt options={defaultOptions} style={{maxWidth:"400px", backgroundColor: "#1a2832", padding:"20px", borderRadius: "10px"}} key={title}>
           <Flex justifyContent="center">
@@ -72,16 +72,14 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
 const Project = () => {
 
     return(
-        <Container id="projects">
-            <Flex flexDirection="column" className="min-h-100">
+            <Flex flexDirection="column" className="min-h-100" id="projects">
             <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsY}>
             <Heading color="primary" fontSize="6xl" pt={20}>Projects. </Heading >
             </motion.div>
-            <Flex flexWrap="wrap" alignItems="center" justifyContent="space-around" my="auto">
+            <Flex flexWrap="wrap" alignItems="center" justifyContent="space-around" my="auto" >
                 {Projects.map((e,i) => <Card index={i} title={e.title} description={e.description} image={e.image} technologies={e.technologies} schoolProject={e.schoolProject} link={e.link} externalLink={e.externalLink} />)}
             </Flex>
-            </Flex> 
-        </Container>)
+            </Flex>)
 }
 
-export default Project;
+export default Container(Project);

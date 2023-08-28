@@ -2,7 +2,6 @@ import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/d
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { Loader } from "./MyModel";
-import { Texture } from "three";
 
 
 const Ball = (props:any) => {

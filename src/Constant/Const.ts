@@ -15,6 +15,7 @@ import Drinks from "../Asset/drinks.png";
 import AiTool from "../Asset/aitool.png";
 import TvMaze from "../Asset/tvmaze.png";
 import { Variants } from "framer-motion";
+import { Timestamp } from "firebase/firestore";
 
 export const FEtechnologies = 
 [
@@ -137,3 +138,10 @@ export const textVariantsX: Variants = {
         }
       }
     };
+
+export interface Message {
+    from:string;
+    subject:string;
+    message:string;
+    dateTime:Timestamp;
+}

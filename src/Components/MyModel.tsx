@@ -19,6 +19,8 @@ const Loader = () => {
 const MyModel = () => {
 
     const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
+    const [isLargerThan680] = useMediaQuery('(min-width: 680px)');
+
 
 
     return (<Canvas
@@ -33,7 +35,8 @@ const MyModel = () => {
            position:"absolute",
            top:"0px",
            left:"0px",
-           cursor:"grab"
+           cursor:"grab",
+           display: isLargerThan680 ? "block" :"none"
            /* marginTop:"10vh" */
         }}
      >
