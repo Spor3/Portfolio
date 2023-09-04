@@ -32,7 +32,7 @@ const Laptop = () => {
          <ambientLight intensity={1.25} />
          <ambientLight intensity={0.1} />
          <directionalLight intensity={0.4} />
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader size="big" />}>
             <OrbitControls enableZoom={false}  />
             <LaptopModel position={[0.025, -0.5, -0.1]}/> 
         </Suspense>

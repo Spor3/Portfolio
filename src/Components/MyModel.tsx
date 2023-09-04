@@ -1,17 +1,21 @@
 import { Html, OrbitControls, Preload, useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { FC, Suspense } from "react";
 import { Model } from "../model";
-import { useMediaQuery } from "@chakra-ui/react";
+import { CircularProgress, CircularProgressLabel, useMediaQuery } from "@chakra-ui/react";
 
-const Loader = () => {
+interface LoaderProps {
+   size: "big" | "small"
+}
+
+const Loader:FC<LoaderProps> = ({size}) => {
    const {progress} = useProgress();
 
    return(
       <Html>
-         <p style={{fontSize: 14, color: "#E2E8F0", fontWeight: 800, marginTop: 40}}>
-            {progress.toFixed(2)}%
-         </p>
+         <CircularProgress value={progress} color='violet' size={size === "big" ? "100px" : "50px"}>
+            <CircularProgressLabel color="white">{progress.toFixed(0)}%</CircularProgressLabel>
+         </CircularProgress>
       </Html>
    );
 }
@@ -40,7 +44,7 @@ const MyModel = () => {
            /* marginTop:"10vh" */
         }}
      >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader size="big"/>}>
             <OrbitControls enableZoom={false}  maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
             <Model position={[0, isLargerThan500 ? -1.8 : -1.95, -0.1]} /> 
         </Suspense>
