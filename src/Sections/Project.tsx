@@ -35,6 +35,7 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
       <motion.div key={title} initial="offscreen" whileInView="onscreen" style={{overflowX:"hidden"}} viewport={{ once: true, /* amount: 0.8 */ }} variants={textVariantsX}>
       <Box m={10} boxShadow="xl">
         <Tilt options={defaultOptions} style={{maxWidth:"400px", backgroundColor: "#1a2832", padding:"20px", borderRadius: "10px"}} key={title}>
+        <a target="_blank" rel="noreferrer" href={link}>
           <Flex justifyContent="center">
                   <Image
                     src={image}
@@ -54,14 +55,7 @@ const Card:FC<CardProps> = ({title, description, image, technologies, schoolProj
                 {
                   technologies.map((e,i) => <Text display="inline" color={i === 1 ? "violet" : i === 2 ? "#DC136C" : i === 3 ? "#FFFFB3" : "#31AFD4"} me={2}>#{e}</Text>)
                 }
-{/*                   <ButtonGroup spacing='2'>
-                    <Button variant='solid' colorScheme='blue'>
-                      Buy now
-                    </Button>
-                    <Button variant='ghost' colorScheme='blue'>
-                      Add to cart
-                    </Button>
-                  </ButtonGroup> */}
+                  </a>
             </Tilt>
             </Box>
             </motion.div>

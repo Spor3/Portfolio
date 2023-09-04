@@ -22,3 +22,17 @@ min-height: 100vh;
   z-index: 100;
   transform-origin: 0%;
 }
+
+ body::-webkit-scrollbar {
+  width: 8px;              /* width of the entire scrollbar */
+} 
+
+body::-webkit-scrollbar-track {
+  background: #111a21;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #A0AEC0;    /* color of the scroll thumb */
+  border-radius: 10px;       /* roundness of the scroll thumb */
+  border: 3px solid #A0AEC0;  /* creates padding around scroll thumb */
+}

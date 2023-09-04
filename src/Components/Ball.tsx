@@ -24,7 +24,7 @@ const Ball = (props:any) => {
 const BallCanvas = ({icon}:any) => {
     return(
         <Canvas gl={{preserveDrawingBuffer:true}} style={{cursor:"grab", height:"112px", width:"112px", marginLeft:"1rem", marginRight:"1rem"}}>
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<Loader size="small"/>}>
         <OrbitControls enableZoom={false}  maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
         <Ball imgUrl={icon} />
             </Suspense>
