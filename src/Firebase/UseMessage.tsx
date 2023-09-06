@@ -1,6 +1,6 @@
-import { Timestamp, addDoc, collection } from "firebase/firestore";
-import { Message } from "../Constant/Const";
+import {  addDoc, collection } from "firebase/firestore";
 import { db } from "./config";
+import { Message } from "../Constant/Interface";
 
 
 

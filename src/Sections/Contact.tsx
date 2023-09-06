@@ -1,5 +1,5 @@
 
-import { Avatar, Box, Card, CardBody, CardHeader, Flex, Heading, useMediaQuery } from "@chakra-ui/react";
+import { Avatar, Box, Card, CardBody, CardHeader, Flex, Heading } from "@chakra-ui/react";
 import { Suspense } from "react";
 import { Loader } from "../Components/MyModel";
 import { OrbitControls, Preload } from "@react-three/drei";
@@ -10,9 +10,11 @@ import { motion } from "framer-motion";
 import { textVariantsX, textVariantsY } from "../Constant/Const";
 import {Container} from "../hoc/Index";
 import Form from "../Components/Form";
+import { useMQuery } from "../ContextMediaQuery";
 
 const Laptop = () => {
-    const [isLargerThan630] = useMediaQuery('(min-width: 630px)');
+    const {isLargerThan500,isLargerThan630} = useMQuery();
+
     return(
         <Canvas
         camera={{ position: [2, 0, 12.25], fov: 15 }}
@@ -43,9 +45,7 @@ const Laptop = () => {
 
 const Contact = () => {
 
-    const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
-    const [isLargerThan860] = useMediaQuery('(min-width: 860px)');
-    const [isLargerThan630] = useMediaQuery('(min-width: 630px)');
+    const {isLargerThan500, isLargerThan630, isLargerThan680, isLargerThan860, isLargerThan1200} = useMQuery();
 
     return(
             <Flex className="min-h-100" flexDirection="column" id="contact">
