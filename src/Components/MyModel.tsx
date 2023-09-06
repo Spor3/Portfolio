@@ -2,19 +2,17 @@ import { Html, OrbitControls, Preload, useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { FC, Suspense } from "react";
 import { Model } from "../model";
-import { CircularProgress, CircularProgressLabel, useMediaQuery } from "@chakra-ui/react";
-
-interface LoaderProps {
-   size: "big" | "small"
-}
+import { Box, CircularProgress, CircularProgressLabel, Flex } from "@chakra-ui/react";
+import { LoaderProps } from "../Constant/Interface";
+import { useMQuery } from "../ContextMediaQuery";
 
 const Loader:FC<LoaderProps> = ({size}) => {
    const {progress} = useProgress();
 
    return(
       <Html>
-         <CircularProgress value={progress} color='violet' size={size === "big" ? "100px" : "50px"}>
-            <CircularProgressLabel color="white">{progress.toFixed(0)}%</CircularProgressLabel>
+         <CircularProgress value={progress} color='rgb(159, 122, 234)' size={size === "big" ? "100px" : "50px"} >
+            <CircularProgressLabel color="#A0AEC0">{progress.toFixed(0)}%</CircularProgressLabel>
          </CircularProgress>
       </Html>
    );
@@ -22,8 +20,7 @@ const Loader:FC<LoaderProps> = ({size}) => {
 
 const MyModel = () => {
 
-    const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
-    const [isLargerThan680] = useMediaQuery('(min-width: 680px)');
+    const {isLargerThan500,isLargerThan630,isLargerThan680} = useMQuery();
 
 
 
@@ -40,8 +37,9 @@ const MyModel = () => {
            top:"0px",
            left:"0px",
            cursor:"grab",
-           display: isLargerThan680 ? "block" :"none"
-           /* marginTop:"10vh" */
+           display: "block",
+           zIndex:1
+           
         }}
      >
         <Suspense fallback={<Loader size="big"/>}>

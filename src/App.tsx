@@ -8,6 +8,8 @@ import Contact from './Sections/Contact';
 import Navigation from './Components/Navigation';
 import { BrowserRouter } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { MediaQueryProvider } from './ContextMediaQuery';
+import { useEffect } from 'react';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -19,17 +21,19 @@ function App() {
    
   return (
     <BrowserRouter>
-   <ChakraProvider theme={theme}>
-      <Box bg="bg">
-      <motion.div className="progress-bar" style={{ scaleX }} />
-    <Navigation />
-   <LandingPage />
-   <Overview />
-   <Project />
-   <Contact />
-   </Box>
-  </ChakraProvider>
-  </BrowserRouter>);
+      <MediaQueryProvider>
+        <ChakraProvider theme={theme}>
+          <Box bg="bg">
+            <motion.div className="progress-bar" style={{ scaleX }} />
+              <Navigation />
+              <LandingPage />
+              <Overview />
+              <Project />
+              <Contact />
+          </Box>
+        </ChakraProvider>
+      </MediaQueryProvider>
+    </BrowserRouter>);
 }
 
 export default App;

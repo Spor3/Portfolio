@@ -1,21 +1,35 @@
-import Html from "../Asset/html-logo.png";
-import Css from "../Asset/css-logo.png";
-import Js from "../Asset/javaScript-logo.png";
-import Ts from "../Asset/typescript-logo.png";
-import React from "../Asset/react-logo.png";
-import Net from "../Asset/net-logo.png";
-import Scss from "../Asset/scss-logo.png";
-import Bootstrap from "../Asset/bootstrap-logo.png";
-import Chakra from "../Asset/chkraui-logo.png";
-import Firebase from "../Asset/firebase-logo.png";
-import SqlServer from "../Asset/sqlserver-logo.png";
-import Linux from "../Asset/linux-logo.png";
-import Windows from "../Asset/windowsserver-logo.png";
-import Drinks from "../Asset/drinks.png";
-import AiTool from "../Asset/aitool.png";
-import TvMaze from "../Asset/tvmaze.png";
+import Html from "../Asset/html-logo.webp";
+import Css from "../Asset/css-logo.webp";
+import Js from "../Asset/javaScript-logo.webp";
+import Ts from "../Asset/typescript-logo.webp";
+import React from "../Asset/react-logo.webp";
+import Net from "../Asset/net-logo.webp";
+import Scss from "../Asset/scss-logo.webp";
+import Bootstrap from "../Asset/bootstrap-logo.webp";
+import Chakra from "../Asset/chkraui-logo.webp";
+import Firebase from "../Asset/firebase-logo.webp";
+import SqlServer from "../Asset/sqlserver-logo.webp";
+import Linux from "../Asset/linux-logo.webp";
+import Windows from "../Asset/windowsserver-logo.webp";
+import Drinks from "../Asset/drinks.webp";
+import AiTool from "../Asset/aitool.webp";
+import TvMaze from "../Asset/tvmaze.webp";
 import { Variants } from "framer-motion";
-import { Timestamp } from "firebase/firestore";
+
+export const navItems = [
+    {
+        name:"Contact",
+        to:"#contact"
+    },
+    {
+        name:"Projects",
+        to:"#projects"
+    },
+    {
+        name:"Overview",
+        to:"#overview"
+    }
+].reverse();
 
 export const FEtechnologies = 
 [
@@ -109,6 +123,18 @@ export const Projects =
     }
 ]
 
+export const defaultOptions = {
+	reverse:        false,  // reverse the tilt direction
+	max:            35,     // max tilt rotation (degrees)
+	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
+	scale:          1.1,    // 2 = 200%, 1.5 = 150%, etc..
+	speed:          1000,   // Speed of the enter/exit transition
+	transition:     true,   // Set a transition on enter/exit.
+	axis:           null,   // What axis should be disabled. Can be X or Y.
+	reset:          true,    // If the tilt effect has to be reset on exit.
+	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+}
+
 export const textVariantsY: Variants = {
     offscreen: {
       y: 150,
@@ -138,10 +164,3 @@ export const textVariantsX: Variants = {
         }
       }
     };
-
-export interface Message {
-    from:string;
-    subject:string;
-    message:string;
-    dateTime:Timestamp;
-}
